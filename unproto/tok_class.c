@@ -44,13 +44,22 @@
 /*	1.4
 /*--*/
 
+
+
+//skfly add begin
+#include <stdlib.h>
+#include <string.h>   // 修复 strlen 未声明
+#include <unistd.h>   // 修复 write() 未声明
+#include <stdarg.h>   // 提供 va_list 类型
+//skfly add end
+
 static char class_sccsid[] = "@(#) tok_class.c 1.4 92/01/15 21:53:02";
 
 /* C library */
 
 #include <stdio.h>
 
-extern char *strcpy();
+//extern char *strcpy();
 extern long time();
 extern char *ctime();
 

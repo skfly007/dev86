@@ -38,12 +38,22 @@
 /*	1.4
 /*--*/
 
+
+
+//skfly add begin
+#include <stdlib.h>
+#include <string.h>   // 修复 strlen 未声明
+#include <unistd.h>   // 修复 write() 未声明
+#include <stdarg.h>   // 提供 va_list 类型
+extern int hash(register char *s, unsigned size);
+//skfly add end
+
 static char symbol_sccsid[] = "@(#) symbol.c 1.4 92/02/15 18:59:56";
 
 /* C library */
 
-extern char *strcpy();
-extern char *malloc();
+// extern char *strcpy();
+// extern char *malloc();
 
 /* Application-specific stuff */
 

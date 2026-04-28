@@ -2,6 +2,13 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
+//skfly add begin
+#include <string.h>   // 修复 strlen 未声明
+#include <unistd.h>   // 修复 write() 未声明
+#include <stdarg.h>   // 提供 va_list 类型
+extern int vdbprintf(const char *fmt, va_list ptr);
+//skfly add end
+
 #if defined(__STDC__) && !defined(__FIRST_ARG_IN_AX__)
 #include <stdarg.h>
 #define va_strt      va_start

@@ -74,6 +74,14 @@
 /*	1.3
 /*--*/
 
+
+//skfly add begin
+#include <stdlib.h>
+#include <string.h>   // 修复 strlen 未声明
+#include <unistd.h>   // 修复 write() 未声明
+#include <stdarg.h>   // 提供 va_list 类型
+//skfly add end
+
 static char io_sccsid[] = "@(#) tok_io.c 1.3 92/01/15 21:52:59";
 
 /* C library */
@@ -82,9 +90,9 @@ static char io_sccsid[] = "@(#) tok_io.c 1.3 92/01/15 21:52:59";
 #include <ctype.h>
 
 extern char *strchr();
-extern char *malloc();
-extern char *realloc();
-extern char *strcpy();
+//extern char *malloc();
+//extern char *realloc();
+//extern char *strcpy();
 
 /* Application-specific stuff */
 
@@ -228,7 +236,7 @@ static int do_control()
 	    }
 	    out_line = in_line = line;		/* synchronize */
 	    out_path = in_path = path;		/* synchronize */
-	    return;
+	    return 0;
 
 #ifdef IGNORE_DIRECTIVES
 
@@ -259,12 +267,12 @@ static int do_control()
 	    do {
 		tok_flush(t);
 	    } while (t->tokno != '\n' && (t = tok_get()));
-	    return;
+	    return 0;
 
 	case 0:
 	    /* Hit EOF, punt. */
 	    put_ch('#');
-	    return;
+	    return 0;
 	}
     }
 }

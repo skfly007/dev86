@@ -134,6 +134,15 @@ static char unproto_sccsid[] = "@(#) unproto.c 1.6 93/06/18 22:29:37";
 
 /* C library */
 
+
+
+//skfly add begin
+#include <stdlib.h>
+#include <string.h>   // 修复 strlen 未声明
+#include <unistd.h>   // 修复 write() 未声明
+#include <stdarg.h>   // 提供 va_list 类型
+//skfly add end
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>

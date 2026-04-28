@@ -545,7 +545,7 @@ chget()
 }
 
 static void 
-unchget(ch)
+unchget(int ch)
 {
 #if CPP_DEBUG
    fprintf(stderr, "\b", ch);
